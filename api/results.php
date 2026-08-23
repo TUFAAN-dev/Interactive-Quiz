@@ -1,20 +1,23 @@
-<?php 
+<?php
 header('Content-Type: application/json');
 
-$resultsFile = '../data/results.json';
+$resultsFile = __DIR__ . '/../data/results.json';
 if (!file_exists($resultsFile)) {
-      echo json_encode([]);
-      exit;
+    echo json_encode([]);
+    exit;
 }
 
 $results = json_decode(file_get_contents($resultsFile), true);
+if (!is_array($results)) {
+    $results = [];
+}
 
-// Sort by percentage descending
 usort($results, function ($a, $b) {
-      return $b['percentage'] - $a['percentage'];
+    $left = isset($a['percentage']) ? (float) $a['percentage'] : 0;
+    $right = isset($b['percentage']) ? (float) $b['percentage'] : 0;
+    return $right <=> $left;
 });
 
 echo json_encode($results);
-
 ?>
 

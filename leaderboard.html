@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leader Board</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Leader Board</h1>
+      <table id="leaderboard-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Score</th>
+            <th>Percentage</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <p>
+        <a href="index.html">Take Quiz Again</a>
+      </p>
+    </div>
+
+    <script>
+      async function loadLeaderboard() {
+        try {
+          const response = await fetch('api/results.php');
+          if (!response.ok) {
+            throw new Error('Failed to load leaderboard');
+          }
+
+          const results = await response.json();
+          const tbody = document.querySelector('#leaderboard-table tbody');
+          tbody.innerHTML = '';
+
+          results.forEach((result, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+              <td>${index + 1}</td>
+              <td>${result.name || 'Anonymous'}</td>
+              <td>${result.score} / ${result.total}</td>
+              <td>${result.percentage}%</td>
+              <td>${result.timestamp || 'N/A'}</td>
+            `;
+            tbody.appendChild(row);
+          });
+        } catch (error) {
+          console.error('Error loading leaderboard:', error);
+        }
+      }
+
+      loadLeaderboard();
+    </script>
+  </body>
+</html>
