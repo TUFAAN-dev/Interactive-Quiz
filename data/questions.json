@@ -1,0 +1,38 @@
+[
+      {
+            "id": 1,
+            "questions": "What is the capital of France?",
+            "options": ["Berlin", "Madrid", "Paris", "Rome"],
+            "correct": "Paris"
+      },
+      {
+            "id": 2,
+            "questions": "What is the largest planet in our solar system?",
+            "options": ["Earth", "Jupiter", "Mars", "Saturn"],
+            "correct": "Jupiter"
+      },
+      {
+            "id": 3,
+            "questions": "Who wrote 'To Kill a Mockingbird'?",
+            "options": ["Harper Lee", "Mark Twain", "Ernest Hemingway", "F. Scott Fitzgerald"],
+            "correct": "Harper Lee"
+      },
+      {
+            "id": 4,
+            "questions": "What is the chemical symbol for gold?",
+            "options": ["Au", "Ag", "Fe", "Pb"],
+            "correct": "Au"
+      },
+      {
+            "id": 5,
+            "questions": "Which element has the atomic number 1?",
+            "options": ["Oxygen", "Hydrogen", "Carbon", "Nitrogen"],
+            "correct": "Hydrogen"
+      },
+      {
+            "id": 6,
+            "questions": "C++ is a _________ language",
+            "options": ["low-level", "General-purpose", "procedural", "Object-Oriented Programming"],
+            "correct": [0,1,2,3]
+      }
+]
