@@ -23,7 +23,7 @@
         <tbody></tbody>
       </table>
       <p>
-        <a href="index.php">Take Quiz Again</a>
+        <a href="index.html">Take Quiz Again</a>
       </p>
     </div>
 
@@ -31,14 +31,10 @@
       async function loadLeaderboard() {
         try {
           const response = await fetch('api/results.php');
-          if (!response.ok) {
-            throw new Error('Failed to load leaderboard');
-          }
-
           const results = await response.json();
           const tbody = document.querySelector('#leaderboard-table tbody');
+          
           tbody.innerHTML = '';
-
           results.forEach((result, index) => {
             const row = document.createElement('tr');
             row.innerHTML = `
