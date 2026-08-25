@@ -126,7 +126,7 @@ function displayResult(result) {
   resultDiv.innerHTML = `
     <p>Your score: ${result.score} / ${result.total}</p>
     <p>Percentage: ${result.percentage}%</p>
-    <a href="leaderboard.html">View Leaderboard</a>
+    <a href="leaderboard.php">View Leaderboard</a>
   `;
   document.getElementById('controls').style.display = 'none';
 }
